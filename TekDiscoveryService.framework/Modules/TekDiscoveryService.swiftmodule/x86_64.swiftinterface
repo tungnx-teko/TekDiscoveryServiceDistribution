@@ -14,3 +14,10 @@ public class DiscoveryService : TekCoreService.BaseService<TekCoreService.APIMan
   @objc deinit
   override public init(url: Foundation.URL, credential: TekCoreService.ServicesCredential? = super)
 }
+public class DiscoveryServiceFactory : TekCoreService.ServiceBuildable, TekCoreService.ServiceConfigAttachable {
+  public var config: TekCoreService.ServiceConfig?
+  required public init()
+  public func withConfig(_ config: TekCoreService.ServiceConfig)
+  public func createService() throws -> TekCoreService.AnyService
+  @objc deinit
+}
